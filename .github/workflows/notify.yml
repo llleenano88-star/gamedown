@@ -1,0 +1,11 @@
+# Проверка статусов и рассылка в Telegram каждые 5 минут (бесплатно, в отличие от Vercel Cron на Hobby)
+# Secrets репозитория: SITE_URL (https://ваш-домен) и CRON_SECRET (то же значение, что в env)
+name: notify
+on:
+  schedule: [{ cron: '*/5 * * * *' }]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - run: curl -fsS -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" "${{ secrets.SITE_URL }}/api/cron/notify"

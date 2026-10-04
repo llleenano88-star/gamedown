@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%; --foreground: 240 10% 8%; --card: 0 0% 98%;
+  --muted: 240 5% 94%; --muted-foreground: 240 4% 40%; --border: 240 6% 88%;
+}
+.dark {
+  --background: 240 10% 6%; --foreground: 0 0% 96%; --card: 240 8% 10%;
+  --muted: 240 6% 16%; --muted-foreground: 240 5% 65%; --border: 240 6% 20%;
+}
+@layer base { * { border-color: hsl(var(--border)); } }
